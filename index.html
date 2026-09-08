@@ -153,6 +153,35 @@ h1 em{font-style:italic; color:var(--muted)}
 }
 .ig:hover, .ig:focus-visible{color:var(--accent); border-bottom-color:currentColor}
 .ig-mark{width:1.05em; height:1.05em; fill:currentColor; flex:none}
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:30;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  opacity:0; transform:translateY(-100%);
+  transition:opacity .25s ease, transform .25s ease;
+  pointer-events:none;
+}
+.topbar.on{opacity:1; transform:none; pointer-events:auto}
+.topbar .inner{
+  max-width:var(--maxw); margin-inline:auto; padding:10px var(--s4);
+  display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12px;
+  letter-spacing:.03em; color:var(--muted);
+}
+.topbar b{color:var(--fg); font-weight:600}
+.tb-id{display:flex; align-items:center; gap:var(--s3); min-width:0}
+.tb-id .lang{padding:1px 6px; font-size:11px}
+.tb-title{
+  font-family:"Newsreader",Georgia,serif; font-size:15px; font-weight:500;
+  color:var(--fg); letter-spacing:0;
+}
+@media (max-width:600px){
+  .tb-title{font-size:13px; margin-right:6px}
+  .tb-id span{display:none}   /* the handle goes first when it is tight */
+}
+@media (prefers-reduced-motion:reduce){.topbar{transition:none}}
+@media (max-width:600px){.topbar .inner{padding:8px 14px}}
 .lang{
   font:inherit; color:inherit; background:none; cursor:pointer;
   border:1px solid var(--keyline); border-radius:2px; padding:2px 7px;
@@ -234,6 +263,10 @@ footer{
     </p>
   </div>
 </header>
+
+<div class="topbar" aria-hidden="true">
+  <div class="inner"><span class="tb-title" data-en="Nature photography portfolio">Természetfotó portfólió</span><span class="tb-id"><b>Polgár Attila</b><span>@raglopa</span><button type="button" class="lang" aria-label="Switch to English">EN</button></span></div>
+</div>
 
 <main>
   <section class="hero wrap">
@@ -597,7 +630,7 @@ footer{
   var EN={title:"Nature photography portfolio · Attila Polgár",
           desc:"Nature photography portfolio of Attila Polgár.",
           zoom:"Enlarged photograph", close:"Close", btn:"HU", aria:"Váltás magyarra"};
-  var btn=document.getElementById("lang");
+  var btns=[].slice.call(document.querySelectorAll(".lang"));
   var meta=document.querySelector('meta[name="description"]');
   function apply(lang){
     var en=lang==="en", cfg=en?EN:HU;
@@ -618,7 +651,7 @@ footer{
       var c=ov.querySelector(".lightbox-close");
       if(c) c.setAttribute("aria-label",cfg.close);
     }
-    btn.textContent=cfg.btn; btn.setAttribute("aria-label",cfg.aria);
+    btns.forEach(function(b){ b.textContent=cfg.btn; b.setAttribute("aria-label",cfg.aria); });
     try{ localStorage.setItem("lang",lang); }catch(e){}
   }
   // The page is Hungarian; English is an opt-in. Auto-switching on browser
@@ -626,9 +659,22 @@ footer{
   var saved=null;
   try{ saved=localStorage.getItem("lang"); }catch(e){}
   if(saved==="en") apply("en");
-  btn.addEventListener("click", function(){
-    apply(document.documentElement.lang==="en" ? "hu" : "en");
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      apply(document.documentElement.lang==="en" ? "hu" : "en");
+    });
   });
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector(".topbar"), head=document.querySelector(".masthead");
+  if(!bar||!head||!("IntersectionObserver" in window)) return;
+  // no scroll listener: the observer fires only when the masthead crosses the edge
+  new IntersectionObserver(function(es){
+    bar.classList.toggle("on", !es[0].isIntersecting);
+    bar.setAttribute("aria-hidden", es[0].isIntersecting ? "true" : "false");
+  },{rootMargin:"0px 0px -100% 0px"}).observe(head);
 })();
 </script>
 </body>
