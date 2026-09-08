@@ -65,6 +65,10 @@ body{
   border-radius:0;
   box-shadow:var(--shadow);
 }
+.mount .data{
+  margin:12px 1px 0; color:var(--muted);
+  justify-content:flex-start;
+}
 .mount img{
   display:block; width:100%; height:auto;
   border:1px solid var(--keyline);
@@ -102,8 +106,7 @@ figure{margin:0}
 figcaption{margin:0}
 
 .label{
-  display:grid; grid-template-columns:minmax(0,1fr) auto;
-  gap:var(--s3) var(--s6); align-items:start; margin:var(--s5) 0 0;
+  margin:var(--s4) 0 0;
 }
 .names{min-width:0}
 .hu{
@@ -140,8 +143,18 @@ footer{
   .label{grid-template-columns:1fr; gap:var(--s4)}
 }
 @media (max-width:600px){
-  :root{--s5:36px; --s6:48px; --s7:72px}
-  .wrap{padding:0 var(--s3)}
+  :root{--s5:32px; --s6:40px; --s7:44px}
+  /* give the photograph the screen: thinner gutter and a thinner mat */
+  .wrap{padding:0 14px}
+  .mount{padding:10px 10px 14px}
+  /* the clamp floor was larger than 7.5vw at phone widths, so the title
+     rendered at its maximum instead of scaling down */
+  h1{font-size:clamp(2rem,9vw,3rem)}
+  .hu{font-size:clamp(1.35rem,6vw,1.7rem)}
+  .data{font-size:12px}
+  .byline{gap:var(--s1) var(--s3)}
+  /* 17px of text is not a tap target */
+  footer a{display:inline-block; padding:10px 4px; margin:-10px 0}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important; transition:none!important}
@@ -163,20 +176,18 @@ footer{
   <section class="hero wrap">
     <figure data-frame="DSC_1240.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/01-gyurgyalag.jpg" width="2200" height="1467" decoding="async"
+          <img src="images/01-gyurgyalag.jpg" srcset="images/01-gyurgyalag-900.jpg 900w, images/01-gyurgyalag.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" decoding="async"
                alt="Gyurgyalag (Merops apiaster) repülés közben, szitakötővel a csőrében">
+          <p class="data">
+              <span>2026-07-23</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/6400 s · ISO 1600</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Gyurgyalag</h2>
               <p class="la">Merops apiaster</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-23</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/6400 s · ISO 1600</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -187,20 +198,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_1588.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/02-karvaly.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/02-karvaly.jpg" srcset="images/02-karvaly-900.jpg 900w, images/02-karvaly.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Karvaly (Accipiter nisus) fürdés közben">
+          <p class="data">
+              <span>2026-07-17</span><span class="sep">/</span>
+              <span>230 mm · f/5,6 · 1/4000 s · ISO 4000</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Karvaly</h2>
               <p class="la">Accipiter nisus</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-17</span><span class="sep">/</span>
-                <span>230 mm · f/5,6 · 1/4000 s · ISO 4000</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -209,20 +218,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_1033.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/03-kuszvago-cser.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/03-kuszvago-cser.jpg" srcset="images/03-kuszvago-cser-900.jpg 900w, images/03-kuszvago-cser.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Küszvágó csér (Sterna hirundo) zsákmányszerző zuhanása">
+          <p class="data">
+              <span>2026-09-03</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Küszvágó csér</h2>
               <p class="la">Sterna hirundo</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-09-03</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -231,20 +238,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_1084.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/04-kuszvago-cser.jpg" width="2200" height="1466" loading="lazy" decoding="async"
+          <img src="images/04-kuszvago-cser.jpg" srcset="images/04-kuszvago-cser-900.jpg 900w, images/04-kuszvago-cser.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1466" loading="lazy" decoding="async"
                alt="Küszvágó csér (Sterna hirundo) kiemelkedik a vízből a csapás után, szétfröccsenő cseppek között">
+          <p class="data">
+              <span>2026-09-03</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Küszvágó csér</h2>
               <p class="la">Sterna hirundo</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-09-03</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -253,20 +258,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_0977.NEF">
         <div class="mount" style="max-width:560px">
-          <img src="images/05-urge.jpg" width="1467" height="2200" loading="lazy" decoding="async"
+          <img src="images/05-urge.jpg" srcset="images/05-urge-900.jpg 600w, images/05-urge.jpg 1467w" sizes="(max-width:600px) 94vw, 560px" width="1467" height="2200" loading="lazy" decoding="async"
                alt="Ürge (Spermophilus citellus) kiegyenesedve nyúl a szederért">
+          <p class="data">
+              <span>2026-07-24</span><span class="sep">/</span>
+              <span>490 mm · f/7,1 · 1/5000 s · ISO 1250</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Ürge</h2>
               <p class="la">Spermophilus citellus</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-24</span><span class="sep">/</span>
-                <span>490 mm · f/7,1 · 1/5000 s · ISO 1250</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -275,20 +278,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_9604.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/06-mezei-nyul.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/06-mezei-nyul.jpg" srcset="images/06-mezei-nyul-900.jpg 900w, images/06-mezei-nyul.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Mezei nyúl (Lepus europaeus) ellenfényben">
+          <p class="data">
+              <span>2026-08-02</span><span class="sep">/</span>
+              <span>440 mm · f/6,3 · 1/3200 s · ISO 1250</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Mezei nyúl</h2>
               <p class="la">Lepus europaeus</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-08-02</span><span class="sep">/</span>
-                <span>440 mm · f/6,3 · 1/3200 s · ISO 1250</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -297,20 +298,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_5316.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/07-bubos-vocsok.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/07-bubos-vocsok.jpg" srcset="images/07-bubos-vocsok-900.jpg 900w, images/07-bubos-vocsok.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Búbos vöcsök (Podiceps cristatus) hallal a csőrében, arany tükröződésű vízen">
+          <p class="data">
+              <span>2026-08-16</span><span class="sep">/</span>
+              <span>600 mm · f/6,3 · 1/3200 s · ISO 900</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Búbos vöcsök</h2>
               <p class="la">Podiceps cristatus</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-08-16</span><span class="sep">/</span>
-                <span>600 mm · f/6,3 · 1/3200 s · ISO 900</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -319,20 +318,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_8624.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/08-jegmadar.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/08-jegmadar.jpg" srcset="images/08-jegmadar-900.jpg 900w, images/08-jegmadar.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Jégmadár (Alcedo atthis) ágon, zuhogó esőben">
+          <p class="data">
+              <span>2026-07-19</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/125 s · ISO 360</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Jégmadár</h2>
               <p class="la">Alcedo atthis</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-19</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/125 s · ISO 360</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -341,20 +338,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_5765.NEF">
         <div class="mount" style="max-width:700px">
-          <img src="images/09-dankasiraly.jpg" width="2200" height="2140" loading="lazy" decoding="async"
+          <img src="images/09-dankasiraly.jpg" srcset="images/09-dankasiraly-900.jpg 900w, images/09-dankasiraly.jpg 2200w" sizes="(max-width:600px) 94vw, 700px" width="2200" height="2140" loading="lazy" decoding="async"
                alt="Dankasirályok (Chroicocephalus ridibundus) csapata felszállás közben">
+          <p class="data">
+              <span>2026-09-05</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Dankasirály</h2>
               <p class="la">Chroicocephalus ridibundus</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-09-05</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -363,20 +358,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_6116.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/10-ustokosgem.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/10-ustokosgem.jpg" srcset="images/10-ustokosgem-900.jpg 900w, images/10-ustokosgem.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Üstökösgém (Ardeola ralloides) közeli portréja, zsákmánnyal a csőrében">
+          <p class="data">
+              <span>2026-07-02</span><span class="sep">/</span>
+              <span>430 mm · f/6 · 1/16000 s · ISO 5000</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Üstökösgém</h2>
               <p class="la">Ardeola ralloides</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-02</span><span class="sep">/</span>
-                <span>430 mm · f/6 · 1/16000 s · ISO 5000</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -385,20 +378,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_2780.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/11-kis-kocsag.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+          <img src="images/11-kis-kocsag.jpg" srcset="images/11-kis-kocsag-900.jpg 900w, images/11-kis-kocsag.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1467" loading="lazy" decoding="async"
                alt="Kis kócsag (Egretta garzetta) rönkön lépked zsákmánnyal, felemelt szárnnyal">
+          <p class="data">
+              <span>2026-07-02</span><span class="sep">/</span>
+              <span>320 mm · f/6,3 · 1/13000 s · ISO 900</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Kis kócsag</h2>
               <p class="la">Egretta garzetta</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-07-02</span><span class="sep">/</span>
-                <span>320 mm · f/6,3 · 1/13000 s · ISO 900</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -407,20 +398,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_0086-1.NEF">
         <div class="mount" style="max-width:820px">
-          <img src="images/12-kuszvago-cser.jpg" width="2165" height="1624" loading="lazy" decoding="async"
+          <img src="images/12-kuszvago-cser.jpg" srcset="images/12-kuszvago-cser-900.jpg 900w, images/12-kuszvago-cser.jpg 2165w" sizes="(max-width:600px) 94vw, 820px" width="2165" height="1624" loading="lazy" decoding="async"
                alt="Két küszvágó csér (Sterna hirundo) a levegőben, hallal">
+          <p class="data">
+              <span>2026-09-03</span><span class="sep">/</span>
+              <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Küszvágó csér</h2>
               <p class="la">Sterna hirundo</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2026-09-03</span><span class="sep">/</span>
-                <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -429,20 +418,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_3179.jpg">
         <div class="mount" style="max-width:820px">
-          <img src="images/13-szocske-larva.jpg" width="2200" height="1650" loading="lazy" decoding="async"
+          <img src="images/13-szocske-larva.jpg" srcset="images/13-szocske-larva-900.jpg 900w, images/13-szocske-larva.jpg 2200w" sizes="(max-width:600px) 94vw, 820px" width="2200" height="1650" loading="lazy" decoding="async"
                alt="Szöcskelárva (Tettigoniidae) egy bimbó hegyén, zöld háttér előtt">
+          <p class="data">
+              <span>2023-04-13</span><span class="sep">/</span>
+              <span>90 mm makró · 1/100 s · ISO 100</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Szöcske (lárva)</h2>
               <p class="la">Tettigoniidae</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2023-04-13</span><span class="sep">/</span>
-                <span>90 mm makró · 1/100 s · ISO 100</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -451,20 +438,18 @@ footer{
     <li class="plate">
       <figure data-frame="DSC_6725.jpg">
         <div class="mount" style="max-width:700px">
-          <img src="images/14-pok.jpg" width="2199" height="2200" loading="lazy" decoding="async"
+          <img src="images/14-pok.jpg" srcset="images/14-pok-900.jpg 900w, images/14-pok.jpg 2199w" sizes="(max-width:600px) 94vw, 700px" width="2199" height="2200" loading="lazy" decoding="async"
                alt="Pók (Araneae) szemből fényképezve, zöld háttér előtt">
+          <p class="data">
+              <span>2023-07-24</span><span class="sep">/</span>
+              <span>90 mm makró · 1/100 s · ISO 100</span>
+            </p>
         </div>
         <figcaption>
           <div class="label">
             <div class="names">
               <h2 class="hu">Pók</h2>
               <p class="la">Araneae</p>
-            </div>
-            <div>
-              <p class="data">
-                <span>2023-07-24</span><span class="sep">/</span>
-                <span>90 mm makró · 1/100 s · ISO 100</span>
-              </p>
             </div>
           </div>
         </figcaption>
@@ -478,30 +463,45 @@ footer{
 
 <style>
 .mount{margin-inline:auto}
+.mount .data{
+  margin:12px 1px 0; color:var(--muted);
+  justify-content:flex-start;
+}
 .mount img{cursor:zoom-in}
 .lightbox{
   position:fixed; inset:0; z-index:100; background:rgba(8,10,11,.95);
   display:flex; align-items:center; justify-content:center; padding:2vmin;
   cursor:zoom-out;
 }
-.lightbox img{
-  max-width:100%; max-height:100%; width:auto; height:auto;
-  object-fit:contain; box-shadow:0 24px 80px rgba(0,0,0,.6);
+.lightbox-inner{max-width:100%; max-height:100%; display:flex}
+.lightbox .mount{
+  margin:0; max-width:96vw;
+  box-shadow:0 24px 80px rgba(0,0,0,.6);
+}
+.lightbox .mount img{
+  width:auto; max-width:100%;
+  max-height:calc(100vh - 12vmin - 3.4rem);
+  height:auto; object-fit:contain;
 }
 </style>
 <script>
 (function(){
   var ov=document.createElement("div");
   ov.className="lightbox"; ov.hidden=true;
-  ov.innerHTML='<img alt="">';
+  ov.innerHTML='<div class="lightbox-inner"></div>';
   document.body.appendChild(ov);
-  var big=ov.querySelector("img");
-  function open(src,alt){ big.src=src; big.alt=alt||""; ov.hidden=false;
-    document.documentElement.style.overflow="hidden"; }
-  function close(){ ov.hidden=true; big.removeAttribute("src");
+  var inner=ov.querySelector(".lightbox-inner");
+  function open(mount){
+    inner.innerHTML="";
+    var clone=mount.cloneNode(true);
+    clone.removeAttribute("style");          // the inline max-width is for the page, not the overlay
+    inner.appendChild(clone);
+    ov.hidden=false; document.documentElement.style.overflow="hidden";
+  }
+  function close(){ ov.hidden=true; inner.innerHTML="";
     document.documentElement.style.overflow=""; }
   document.querySelectorAll(".mount img").forEach(function(img){
-    img.addEventListener("click", function(){ open(img.currentSrc||img.src, img.alt); });
+    img.addEventListener("click", function(){ open(img.closest(".mount")); });
   });
   ov.addEventListener("click", close);
   document.addEventListener("keydown", function(e){ if(e.key==="Escape" && !ov.hidden) close(); });
