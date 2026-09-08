@@ -189,11 +189,6 @@ figcaption{margin:0}
 .data span{white-space:nowrap}
 .data .sep{color:var(--keyline)}
 
-footer a{
-  color:inherit; text-decoration:none;
-  border-bottom:1px solid var(--keyline);
-}
-footer a:hover, footer a:focus-visible{color:var(--accent); border-bottom-color:currentColor}
 footer{
   margin-top:var(--s6); padding:var(--s5) 0 var(--s7); color:var(--muted);
   font-size:12px; font-family:"IBM Plex Mono",ui-monospace,monospace;
@@ -217,8 +212,7 @@ footer{
   .plate-label .names{text-align:left}
   .byline{gap:var(--s1) var(--s3)}
   /* 17px of text is not a tap target */
-  footer a{display:inline-block; padding:10px 4px; margin:-10px 0}
-}
+  }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important; transition:none!important}
 }
@@ -464,7 +458,7 @@ footer{
 
 </main>
 
-<footer class="wrap">Polgár Attila · <a href="https://www.instagram.com/raglopa/" rel="me noopener noreferrer" target="_blank">@raglopa</a></footer>
+<footer class="wrap">Polgár Attila</footer>
 
 <style>
 .mount{margin-inline:auto}
