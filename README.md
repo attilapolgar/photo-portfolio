@@ -1,19 +1,20 @@
-# Pannon táblák
+# Természetfotó portfólió
 
-Tizenkét természetfotó a Pannon-medencéből, 2026 júliusa és szeptembere között.
+Tizennégy természetfotó a Pannon-medencéből.
 
 **Élő oldal: https://attilapolgar.github.io/photo-portfolio/**
 
-Fotó: Polgár Attila · Nikon Z 8 · NIKKOR Z 180–600 mm f/5,6–6,3 VR
+Fotó: Polgár Attila · [@raglopa](https://www.instagram.com/raglopa/)
+Nikon Z 8 · Z 5 · NIKKOR Z 180–600 mm f/5,6–6,3 VR · Laowa 90 mm f/2,8 2× makró
 
-## Táblák
+## Képek
 
 | # | Faj | Latin |
 |---|-----|-------|
 | 1 | Gyurgyalag | *Merops apiaster* |
 | 2 | Karvaly | *Accipiter nisus* |
-| 3 | Küszvágó csér — a csapás | *Sterna hirundo* |
-| 4 | Küszvágó csér — a kiemelkedés | *Sterna hirundo* |
+| 3 | Küszvágó csér | *Sterna hirundo* |
+| 4 | Küszvágó csér | *Sterna hirundo* |
 | 5 | Ürge | *Spermophilus citellus* |
 | 6 | Mezei nyúl | *Lepus europaeus* |
 | 7 | Búbos vöcsök | *Podiceps cristatus* |
@@ -21,27 +22,37 @@ Fotó: Polgár Attila · Nikon Z 8 · NIKKOR Z 180–600 mm f/5,6–6,3 VR
 | 9 | Dankasirály | *Chroicocephalus ridibundus* |
 | 10 | Üstökösgém | *Ardeola ralloides* |
 | 11 | Kis kócsag | *Egretta garzetta* |
-| 12 | Küszvágó csér — halátadás | *Sterna hirundo* |
+| 12 | Küszvágó csér | *Sterna hirundo* |
+| 13 | Szöcske (lárva) | *Tettigoniidae* |
+| 14 | Pók | *Araneae* |
+
+A 13. és 14. kép neve szándékosan család, illetve rend szintű: a lárva és az
+egyetlen, szemből készült felvétel nem hordozza azokat a bélyegeket, amelyek
+a pontos meghatározáshoz kellenének.
 
 ## Felépítés
 
 Statikus oldal, keretrendszer nélkül: egyetlen `index.html` és az `images/`
-könyvtár. A képek RAW-ból (NEF) készültek DxO PhotoLab 9-ben, a weboldalra
-2200 képpont hosszú oldallal exportálva.
+könyvtár. A képek hosszabb oldala 2200 képpont. Az 1–12. kép RAW-ból (NEF)
+készült DxO PhotoLab 9-ben, a 13–14. makró korábbi, JPEG forrásból.
 
 ```
-index.html      a teljes oldal (~21 KB)
-images/         a tizenkét kép
+index.html      a teljes oldal (~18 KB)
+images/         a tizennégy kép
 ```
+
+A képek külön fájlban vannak, nem az oldalba ágyazva, így a böngésző
+egyenként tölti és gyorsítótárazza őket. A képre kattintva teljes képernyőn
+nyílik meg; ESC vagy kattintás zárja.
 
 ## Licenc / License
 
 A repó **forráskódja** MIT licenc alatt áll — lásd [LICENSE](LICENSE).
 
 A **fényképek nem tartoznak az MIT licenc alá.** Minden fotó szerzői joga
-Polgár Attiláé, © 2026, minden jog fenntartva. A képek engedély nélküli
-felhasználása, másolása, terjesztése vagy átdolgozása nem megengedett.
+Polgár Attiláé, minden jog fenntartva. A képek engedély nélküli felhasználása,
+másolása, terjesztése vagy átdolgozása nem megengedett.
 
 > The **photographs are not covered by the MIT license.** All images are
-> © 2026 Attila Polgár, all rights reserved. The MIT license applies to the
+> © Attila Polgár, all rights reserved. The MIT license applies to the
 > site's source code only.
