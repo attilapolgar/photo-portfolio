@@ -30,6 +30,13 @@ failures: list[str] = []
 notes: list[str] = []
 
 
+def markup_only(html: str) -> str:
+    """Script and style bodies are not markup. A `<title>` mentioned in a JS
+    comment, or a `<!--` inside a string, must not count as a document tag."""
+    html = re.sub(r"<script\b[^>]*>.*?</script>", "<script></script>", html, flags=re.S)
+    return re.sub(r"<style\b[^>]*>.*?</style>", "<style></style>", html, flags=re.S)
+
+
 def fail(check: str, detail: str) -> None:
     failures.append(f"{check}: {detail}")
 
@@ -37,7 +44,7 @@ def fail(check: str, detail: str) -> None:
 def check_single_title(html: str) -> None:
     """A stray <title> shipped once: the generator lifted the source page's own
     title into <head> beside the authored one, and the tail leaked as text."""
-    n = len(re.findall(r"<title>", html))
+    n = len(re.findall(r"<title>", markup_only(html)))
     if n != 1:
         fail("title", f"expected exactly 1 <title>, found {n}")
 
@@ -45,7 +52,7 @@ def check_single_title(html: str) -> None:
 def check_no_nested_comments(html: str) -> None:
     """HTML comments do not nest. A comment quoting `<!--DEV-->` inside itself
     terminated early and rendered its tail as visible text on the page."""
-    for m in re.finditer(r"<!--.*?-->", html, re.S):
+    for m in re.finditer(r"<!--.*?-->", markup_only(html), re.S):
         if "<!--" in m.group(0)[4:]:
             fail("comments", f"nested comment opener in {m.group(0)[:60]!r}")
 
@@ -137,8 +144,8 @@ def check_readme_matches(html: str) -> None:
     page = [
         (hu, la)
         for hu, la in zip(
-            re.findall(r'<h2 class="hu">([^<]+)</h2>', html),
-            re.findall(r'<p class="la">([^<]+)</p>', html),
+            re.findall(r'<h2 class="hu"[^>]*>([^<]+)</h2>', html),
+            re.findall(r'<p class="la"[^>]*>([^<]+)</p>', html),
         )
     ]
     rows = re.findall(r"^\| (\d+) \| ([^|]+?) \| \*([^*]+)\* \|$", readme, re.M)
@@ -169,7 +176,7 @@ def main() -> int:
     check_image_metadata(files)
     check_readme_matches(html)
 
-    plates = len(re.findall(r'<h2 class="hu">', html))
+    plates = len(re.findall(r'<h2 class="hu"', html))
     notes.append(f"{plates} plates, {len(files)} image files referenced")
 
     for n in notes:
