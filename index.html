@@ -477,67 +477,108 @@ footer{
 }
 .lightbox-close:hover{background:rgba(20,24,26,.9)}
 .lightbox-close:focus-visible{outline:2px solid #fff; outline-offset:2px}
+.lightbox-count{
+  position:fixed; left:0; right:0; bottom:max(10px,1.6vmin); margin:0;
+  text-align:center; pointer-events:none;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
+  letter-spacing:.08em; color:rgba(255,255,255,.45);
+  font-variant-numeric:tabular-nums;
+}
 .lightbox{
   position:fixed; inset:0; z-index:100; background:rgba(8,10,11,.95);
   display:flex; align-items:center; justify-content:center; padding:2vmin;
+  overscroll-behavior:contain;
   cursor:zoom-out;
 }
 .lightbox-inner{max-width:100%; max-height:100%; display:flex}
 .lightbox .mount{
-  margin:0; max-width:96vw;
+  margin:0; max-width:none; width:auto;
   box-shadow:0 24px 80px rgba(0,0,0,.6);
 }
+/* With srcset, width:auto resolves to the DENSITY-CORRECTED intrinsic width,
+   so max-width can never scale the image up. Drive the height explicitly from
+   whichever limit binds first, and let width follow the aspect ratio. */
 .lightbox .mount img{
-  width:auto; max-width:100%;
-  max-height:calc(100vh - 12vmin - 3.4rem);
-  height:auto; object-fit:contain;
+  height:min(calc(96dvh - 7rem), calc((96vw - 4rem) / var(--ar, 1.5)));
+  width:auto; max-width:none; max-height:none; object-fit:contain;
 }
 </style>
 <script>
 (function(){
+  var mounts=[].slice.call(document.querySelectorAll(".mount"));
+  if(!mounts.length) return;
+
   var ov=document.createElement("div");
   ov.className="lightbox"; ov.hidden=true;
   ov.setAttribute("role","dialog");
   ov.setAttribute("aria-modal","true");
   ov.setAttribute("aria-label","Nagyított kép");
   ov.innerHTML='<button type="button" class="lightbox-close" aria-label="Bezárás">\u00d7</button>'
-             + '<div class="lightbox-inner"></div>';
+             + '<div class="lightbox-inner"></div>'
+             + '<p class="lightbox-count" aria-live="polite"></p>';
   document.body.appendChild(ov);
   var inner=ov.querySelector(".lightbox-inner");
   var closeBtn=ov.querySelector(".lightbox-close");
-  var opener=null;
-  function open(mount, trigger){
-    inner.innerHTML="";
-    var clone=mount.cloneNode(true);
-    clone.removeAttribute("style");          // the inline max-width is for the page, not the overlay
+  var count=ov.querySelector(".lightbox-count");
+  var current=-1;
+
+  function render(i){
+    current=(i+mounts.length)%mounts.length;      // wrap at both ends
+    var clone=mounts[current].cloneNode(true);
+    clone.removeAttribute("style");               // the inline max-width is for the page, not the overlay
     var img=clone.querySelector("img");
-    if(img){ img.removeAttribute("tabindex"); img.removeAttribute("role"); }
+    if(img){
+      img.removeAttribute("tabindex"); img.removeAttribute("role");
+      var w=parseFloat(img.getAttribute("width")), h=parseFloat(img.getAttribute("height"));
+      if(w>0 && h>0) clone.style.setProperty("--ar", (w/h).toFixed(4));
+    }
+    inner.innerHTML="";
     inner.appendChild(clone);
-    opener=trigger||null;
-    ov.hidden=false; document.documentElement.style.overflow="hidden";
-    closeBtn.focus();                        // move focus into the dialog
+    count.textContent=(current+1)+" / "+mounts.length;
   }
+  function open(i){
+    render(i);
+    ov.hidden=false; document.documentElement.style.overflow="hidden";
+    closeBtn.focus();                             // move focus into the dialog
+  }
+  function step(d){ render(current+d); }
   function close(){
     ov.hidden=true; inner.innerHTML="";
     document.documentElement.style.overflow="";
-    if(opener){ opener.focus(); opener=null; } // and hand it back where it came from
+    if(current>-1){
+      var back=mounts[current].querySelector("img");
+      if(back){ back.scrollIntoView({block:"center"}); back.focus(); }  // land on the plate you ended on
+    }
+    current=-1;
   }
-  document.querySelectorAll(".mount img").forEach(function(img){
-    img.addEventListener("click", function(){ open(img.closest(".mount"), img); });
+
+  mounts.forEach(function(mount,i){
+    var img=mount.querySelector("img");
+    if(!img) return;
+    img.addEventListener("click", function(){ open(i); });
     img.addEventListener("keydown", function(e){
-      if(e.key==="Enter" || e.key===" " || e.key==="Spacebar"){
-        e.preventDefault(); open(img.closest(".mount"), img);
-      }
+      if(e.key==="Enter" || e.key===" " || e.key==="Spacebar"){ e.preventDefault(); open(i); }
     });
   });
+
   ov.addEventListener("click", close);
   closeBtn.addEventListener("click", function(e){ e.stopPropagation(); close(); });
   document.addEventListener("keydown", function(e){
     if(ov.hidden) return;
     if(e.key==="Escape"){ close(); return; }
-    // the dialog holds one control, so trapping is simply: keep focus on it
-    if(e.key==="Tab"){ e.preventDefault(); closeBtn.focus(); }
+    if(e.key==="ArrowRight"){ e.preventDefault(); step(1); return; }
+    if(e.key==="ArrowLeft"){ e.preventDefault(); step(-1); return; }
+    if(e.key==="Tab"){ e.preventDefault(); closeBtn.focus(); }  // one control, so the trap is simple
   });
+
+  // the same gesture on touch, since arrow keys are not available there
+  var x0=null;
+  ov.addEventListener("touchstart", function(e){ x0=e.changedTouches[0].clientX; }, {passive:true});
+  ov.addEventListener("touchend", function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>50){ step(dx<0?1:-1); }
+  }, {passive:true});
 })();
 </script>
 </body>
