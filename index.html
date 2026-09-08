@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pannon táblák — Polgár Attila</title>
+<meta name="description" content="Tizenkét természetfotó a Pannon-medencéből, 2026 júliusa és szeptembere között.">
+<meta name="author" content="Polgár Attila">
+<link rel="canonical" href="https://attilapolgar.github.io/photo-portfolio/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>%F0%9F%AA%B6</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pannon táblák — Polgár Attila">
+<meta property="og:description" content="Tizenkét természetfotó a Pannon-medencéből, 2026 júliusa és szeptembere között.">
+<meta property="og:url" content="https://attilapolgar.github.io/photo-portfolio/">
+<meta property="og:image" content="https://attilapolgar.github.io/photo-portfolio/images/01-gyurgyalag.jpg">
+<meta property="og:locale" content="hu_HU">
+<meta name="twitter:card" content="summary_large_image">
+<title>Pannon Plates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<style>
+:root{
+  --bg:#e8e9e5; --panel:#dedfd9; --mat:#f6f6f3; --fg:#171b1c; --muted:#5d6663;
+  --line:#c6c8c1; --keyline:#b9bcb4; --accent:#7a6410;
+  --shadow:0 1px 1px rgba(20,25,25,.07),0 12px 26px -14px rgba(20,25,25,.34);
+  --maxw:1180px;
+  --s1:6px; --s2:12px; --s3:20px; --s4:32px; --s5:48px; --s6:72px; --s7:112px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101314; --panel:#171b1c; --mat:#1b2021; --fg:#e2e6e4; --muted:#8a938f;
+    --line:#272d2e; --keyline:#333a3b; --accent:#e3c14a;
+    --shadow:0 1px 1px rgba(0,0,0,.55),0 16px 34px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101314; --panel:#171b1c; --mat:#1b2021; --fg:#e2e6e4; --muted:#8a938f;
+  --line:#272d2e; --keyline:#333a3b; --accent:#e3c14a;
+  --shadow:0 1px 1px rgba(0,0,0,.55),0 16px 34px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin-inline:auto; padding:0 var(--s4)}
+
+/* ---------- mounted print ---------- */
+.mount{
+  background:var(--mat);
+  /* museum mat: generous, and weighted at the foot so the image does not read low */
+  padding:clamp(18px,2.3vw,34px);
+  padding-bottom:clamp(26px,3.2vw,48px);
+  border:1px solid var(--line);
+  border-radius:0;
+  box-shadow:var(--shadow);
+}
+.mount img{
+  display:block; width:100%; height:auto;
+  border:1px solid var(--keyline);
+  border-radius:0;
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:var(--s7) 0 0}
+.kicker{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
+  letter-spacing:.20em; text-transform:uppercase; color:var(--accent);
+  display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+}
+.kicker::after{content:""; flex:1; height:1px; background:var(--line); min-width:40px}
+h1{
+  font-family:"Newsreader",Georgia,serif; font-weight:500;
+  font-size:clamp(2.9rem,7.5vw,5.1rem); line-height:.98; letter-spacing:-.018em;
+  margin:20px 0 0; text-wrap:balance;
+}
+h1 em{font-style:italic; color:var(--muted)}
+.standfirst{
+  max-width:60ch; margin:var(--s3) 0 0; font-size:1.06rem; color:var(--muted);
+}
+.byline{
+  margin:var(--s4) 0 0; display:flex; gap:var(--s2) var(--s4); flex-wrap:wrap;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12px;
+  letter-spacing:.03em; color:var(--muted);
+}
+.byline b{color:var(--fg); font-weight:600}
+
+/* ---------- plates ---------- */
+.hero{margin-top:var(--s6)}
+.plates{margin-block:0; padding-block:0; list-style:none}
+.plate{
+  margin-top:var(--s7); border-top:1px solid var(--line); padding-top:var(--s6);
+}
+figure{margin:0}
+figcaption{margin:0}
+
+.label{
+  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:var(--s3) var(--s6); align-items:start; margin:var(--s5) 0 0;
+}
+.names{min-width:0}
+.plateno{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
+  letter-spacing:.20em; color:var(--accent); display:block; margin:0 0 var(--s2);
+}
+.hu{
+  font-family:"Newsreader",Georgia,serif; font-weight:500;
+  font-size:clamp(1.55rem,3.2vw,2.15rem); line-height:1.1; margin:0;
+  letter-spacing:-.012em; text-wrap:balance;
+}
+.en{margin:var(--s2) 0 0; color:var(--muted); font-size:.98rem; line-height:1.4}
+.la{
+  font-family:"Newsreader",Georgia,serif; font-style:italic;
+  color:var(--muted); font-size:1.02rem; margin:2px 0 0; line-height:1.4;
+}
+.note{margin:0; max-width:60ch; font-size:.985rem}
+.data{
+  margin:var(--s3) 0 0; font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px; letter-spacing:.02em; color:var(--muted);
+  font-variant-numeric:tabular-nums; display:flex; gap:var(--s1) var(--s3);
+  flex-wrap:wrap; align-items:baseline;
+}
+.data span{white-space:nowrap}
+.data .sep{color:var(--keyline)}
+
+footer{
+  margin-top:var(--s6); padding:var(--s5) 0 var(--s7); color:var(--muted);
+  font-size:12px; font-family:"IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.04em; border-top:1px solid var(--line);
+}
+
+@media (max-width:820px){
+  .label{grid-template-columns:1fr; gap:var(--s4)}
+}
+@media (max-width:600px){
+  :root{--s5:36px; --s6:48px; --s7:72px}
+  .wrap{padding:0 var(--s3)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important}
+}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Természetfotó portfólió · Magyarország · 2026</p>
+    <h1>Pannon táblák<br><em>tizenkét kép</em></h1>
+    <p class="standfirst">
+      Tizenkét természetfotó a Pannon-medencéből, 2026 júliusa és szeptembere között —
+      madarak és emlősök: portré, mozdulat és élőhely.
+    </p>
+    <p class="byline">
+      <span><b>Polgár Attila</b></span>
+      <span>Nikon Z 8</span>
+      <span>NIKKOR Z 180–600 mm f/5,6–6,3 VR</span>
+    </p>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <figure data-frame="DSC_1240.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/01-gyurgyalag.jpg" width="2200" height="1467" decoding="async"
+               alt="Gyurgyalag (Merops apiaster) repülés közben, szitakötővel a csőrében">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">1. tábla</span>
+              <h2 class="hu">Gyurgyalag</h2>
+              <p class="la">Merops apiaster</p>
+            </div>
+            <div>
+              <p class="note">Keresztben tartott szitakötő a csőrben, a két szárny tükrös keresztté nyílik, a faroktollak hosszan húznak utána. A háttér egyetlen meleg tónusú gyepfolt, semmi nem versenyez a madárral.</p>
+              <p class="data">
+                <span>2026-07-23</span><span class="sep">/</span>
+                <span>16:44</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/6400 s · ISO 1600</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+  </section>
+
+  <ul class="plates wrap">
+    <li class="plate">
+      <figure data-frame="DSC_1588.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/02-karvaly.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Karvaly (Accipiter nisus) fürdés közben">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">2. tábla</span>
+              <h2 class="hu">Karvaly</h2>
+              <p class="la">Accipiter nisus</p>
+            </div>
+            <div>
+              <p class="note">Fürdő karvaly, bőrig ázva, mindkét szemével a lencsét tartja, miközben az imént felcsapott víz ívben áll meg a feje mögött. Mély árnyékba fényképezve, így a permet fényként rajzolódik ki a feketén.</p>
+              <p class="data">
+                <span>2026-07-17</span><span class="sep">/</span>
+                <span>11:51</span><span class="sep">/</span>
+                <span>230 mm · f/5,6 · 1/4000 s · ISO 4000</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_1033.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/03-kuszvago-cser.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Küszvágó csér (Sterna hirundo) zsákmányszerző zuhanása">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">3. tábla</span>
+              <h2 class="hu">Küszvágó csér</h2>
+              <p class="la">Sterna hirundo</p>
+            </div>
+            <div>
+              <p class="note">A csapás pillanata, amikor a csőr felszakítja a víztükröt — a szárnyak egyetlen nyílheggyé csukódnak, a lábak felhúzva, a madár saját fénye szétterül alatta a vízen. A túlpart teljesen életlenre engedve, így a fehér madár egyedül viszi a képet.</p>
+              <p class="data">
+                <span>2026-09-03</span><span class="sep">/</span>
+                <span>07:28</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_1084.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/04-kuszvago-cser.jpg" width="2200" height="1466" loading="lazy" decoding="async"
+               alt="Küszvágó csér (Sterna hirundo) kiemelkedik a vízből a csapás után, szétfröccsenő cseppek között">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">4. tábla</span>
+              <h2 class="hu">Küszvágó csér</h2>
+              <p class="la">Sterna hirundo</p>
+            </div>
+            <div>
+              <p class="note">Ugyanaz a madár tizennégy másodperccel később: a csapás után emelkedik ki a vízből, a szárnyak mély V-be nyílnak, a lábak még a felszínt nyomják, a felvert cseppek pedig megállnak a levegőben. Az ellenfény átvilágítja az evezőtollakat.</p>
+              <p class="data">
+                <span>2026-09-03</span><span class="sep">/</span>
+                <span>07:28</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/3200 s · ISO 720</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_0976.NEF">
+        <div class="mount" style="max-width:560px">
+          <img src="images/05-urge.jpg" width="1467" height="2200" loading="lazy" decoding="async"
+               alt="Ürge (Spermophilus citellus) ágról szedett gyümölccsel">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">5. tábla</span>
+              <h2 class="hu">Ürge</h2>
+              <p class="la">Spermophilus citellus</p>
+            </div>
+            <div>
+              <p class="note">A védett pusztai rágcsáló teljes magasságában kiegyenesedve húzza le magához a gyümölccsel teli ágat. Talajszintről fényképezve, így az állat függőlegesen rajzolódik ki a tiszta, távoli gyep előtt.</p>
+              <p class="data">
+                <span>2026-07-24</span><span class="sep">/</span>
+                <span>09:32</span><span class="sep">/</span>
+                <span>490 mm · f/7,1 · 1/5000 s · ISO 1250</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_9604.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/06-mezei-nyul.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Mezei nyúl (Lepus europaeus) ellenfényben">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">6. tábla</span>
+              <h2 class="hu">Mezei nyúl</h2>
+              <p class="la">Lepus europaeus</p>
+            </div>
+            <div>
+              <p class="note">Az első fény végigfut az oldalán, a bajusz és a fülek erezete hátulról átvilágítva, a száraz fű pedig egyetlen meleg tónusmezővé egyszerűsödik.</p>
+              <p class="data">
+                <span>2026-08-02</span><span class="sep">/</span>
+                <span>06:48</span><span class="sep">/</span>
+                <span>440 mm · f/6,3 · 1/3200 s · ISO 1250</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_5316.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/07-bubos-vocsok.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Búbos vöcsök (Podiceps cristatus) hallal a csőrében, arany tükröződésű vízen">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">7. tábla</span>
+              <h2 class="hu">Búbos vöcsök</h2>
+              <p class="la">Podiceps cristatus</p>
+            </div>
+            <div>
+              <p class="note">Búbos vöcsök úszik át az arany tükrön, csőrében a frissen fogott hallal. A parti növényzet visszaverődő fénye egyetlen meleg sávvá mosódik össze mögötte, alatta pedig töretlen marad a madár tükörképe.</p>
+              <p class="data">
+                <span>2026-08-16</span><span class="sep">/</span>
+                <span>08:36</span><span class="sep">/</span>
+                <span>600 mm · f/6,3 · 1/3200 s · ISO 900</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_8624.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/08-jegmadar.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Jégmadár (Alcedo atthis) ágon, zuhogó esőben">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">8. tábla</span>
+              <h2 class="hu">Jégmadár</h2>
+              <p class="la">Alcedo atthis</p>
+            </div>
+            <div>
+              <p class="note">Zuhogó esőben, egyetlen csupasz ágon. A hosszabb záridő szálakká húzza az esőcseppeket, a madár közben mozdulatlan marad — a képnek ezúttal ugyanannyira tárgya az idő, mint maga a jégmadár.</p>
+              <p class="data">
+                <span>2026-07-19</span><span class="sep">/</span>
+                <span>16:15</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/125 s · ISO 360</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_5765.NEF">
+        <div class="mount" style="max-width:700px">
+          <img src="images/09-dankasiraly.jpg" width="2200" height="2140" loading="lazy" decoding="async"
+               alt="Dankasirályok (Chroicocephalus ridibundus) csapata felszállás közben">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">9. tábla</span>
+              <h2 class="hu">Dankasirály</h2>
+              <p class="la">Chroicocephalus ridibundus</p>
+            </div>
+            <div>
+              <p class="note">A sekély vízi pihenőhely egyszerre kap szárnyra: minden madár a felszállás más fázisában, és egyik sem takarja a másikat. Az alacsony oldalfény elválasztja a szárnyak alját a túlparttól.</p>
+              <p class="data">
+                <span>2026-09-05</span><span class="sep">/</span>
+                <span>07:24</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_6116.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/10-ustokosgem.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Üstökösgém (Ardeola ralloides) közeli portréja, zsákmánnyal a csőrében">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">10. tábla</span>
+              <h2 class="hu">Üstökösgém</h2>
+              <p class="la">Ardeola ralloides</p>
+            </div>
+            <div>
+              <p class="note">Üstökösgém közelről, a csőr hegyén hínárba csavarodott zsákmánnyal. A rozsdás-okker tollazat és a lágy zöld háttér ugyanabba a tónustartományba simul, a képet a sárga szem és a csőr éles vonala tartja meg.</p>
+              <p class="data">
+                <span>2026-07-02</span><span class="sep">/</span>
+                <span>15:15</span><span class="sep">/</span>
+                <span>430 mm · f/6 · 1/16000 s · ISO 5000</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_2780.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/11-kis-kocsag.jpg" width="2200" height="1467" loading="lazy" decoding="async"
+               alt="Kis kócsag (Egretta garzetta) rönkön lépked zsákmánnyal, felemelt szárnnyal">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">11. tábla</span>
+              <h2 class="hu">Kis kócsag</h2>
+              <p class="la">Egretta garzetta</p>
+            </div>
+            <div>
+              <p class="note">A rönkön végiglépkedő kis kócsag, csőrében a frissen fogott hallal: az egyik szárny teljes felütésben áll, a láb a lépés közepén emelkedik. Mögötte a vízinövények sárga sávja egyetlen tónusmezővé olvad össze.</p>
+              <p class="data">
+                <span>2026-07-02</span><span class="sep">/</span>
+                <span>08:33</span><span class="sep">/</span>
+                <span>320 mm · f/6,3 · 1/13000 s · ISO 900</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    <li class="plate">
+      <figure data-frame="DSC_0086-1.NEF">
+        <div class="mount" style="max-width:820px">
+          <img src="images/12-kuszvago-cser.jpg" width="2165" height="1624" loading="lazy" decoding="async"
+               alt="Két küszvágó csér (Sterna hirundo) a levegőben, hallal">
+        </div>
+        <figcaption>
+          <div class="label">
+            <div class="names">
+              <span class="plateno">12. tábla</span>
+              <h2 class="hu">Küszvágó csér</h2>
+              <p class="la">Sterna hirundo</p>
+            </div>
+            <div>
+              <p class="note">Két csér a levegőben: a felső madár csőrénél a hal, az alsó fordulásból nyúl felé, a szárnyaik egymásba fésülődnek. A tiszta ég egyetlen halvány kék mezővé egyszerűsíti a hátteret, így a két test rajza viszi a képet.</p>
+              <p class="data">
+                <span>2026-09-03</span><span class="sep">/</span>
+                <span>08:10</span><span class="sep">/</span>
+                <span>600 mm · f/7,1 · 1/3200 s · ISO 400</span>
+              </p>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+
+</main>
+
+<footer class="wrap">Polgár Attila · Pannon-medence, Magyarország · 2026. július–szeptember</footer>
+
+<style>
+.mount{margin-inline:auto}
+.mount img{cursor:zoom-in}
+.lightbox{
+  position:fixed; inset:0; z-index:100; background:rgba(8,10,11,.95);
+  display:flex; align-items:center; justify-content:center; padding:2vmin;
+  cursor:zoom-out;
+}
+.lightbox img{
+  max-width:100%; max-height:100%; width:auto; height:auto;
+  object-fit:contain; box-shadow:0 24px 80px rgba(0,0,0,.6);
+}
+.lightbox .hint{
+  position:fixed; bottom:2.4vmin; left:0; right:0; text-align:center;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
+  letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5);
+}
+</style>
+<script>
+(function(){
+  var ov=document.createElement("div");
+  ov.className="lightbox"; ov.hidden=true;
+  ov.innerHTML='<img alt=""><span class="hint">kattints vagy ESC a bezáráshoz</span>';
+  document.body.appendChild(ov);
+  var big=ov.querySelector("img");
+  function open(src,alt){ big.src=src; big.alt=alt||""; ov.hidden=false;
+    document.documentElement.style.overflow="hidden"; }
+  function close(){ ov.hidden=true; big.removeAttribute("src");
+    document.documentElement.style.overflow=""; }
+  document.querySelectorAll(".mount img").forEach(function(img){
+    img.addEventListener("click", function(){ open(img.currentSrc||img.src, img.alt); });
+  });
+  ov.addEventListener("click", close);
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && !ov.hidden) close(); });
+})();
+</script>
+</body>
+</html>
