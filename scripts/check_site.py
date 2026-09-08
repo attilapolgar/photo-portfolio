@@ -137,6 +137,27 @@ def check_image_metadata(files: set[str]) -> None:
                 fail("metadata", f"{f} still carries GPS data ({len(gps)} tag(s))")
 
 
+def check_canonical_matches_cname(html: str) -> None:
+    """The site is served from whatever CNAME says. A canonical, og:url or
+    og:image still naming the old host would send crawlers and link previews to
+    an address the page no longer lives at."""
+    cname = ROOT / "CNAME"
+    if not cname.is_file():
+        return
+    host = cname.read_text(encoding="utf-8").strip()
+    if not host:
+        fail("domain", "CNAME is empty")
+        return
+    for attr, pattern in (
+        ("canonical", r'<link rel="canonical" href="(https?://[^"]+)"'),
+        ("og:url", r'"og:url" content="(https?://[^"]+)"'),
+        ("og:image", r'"og:image" content="(https?://[^"]+)"'),
+    ):
+        for url in re.findall(pattern, html):
+            if f"//{host}/" not in url:
+                fail("domain", f"{attr} is {url!r}, but CNAME says {host}")
+
+
 def check_readme_matches(html: str) -> None:
     """The readme duplicates the plate list and drifted from it twice, silently,
     within minutes of a merge."""
@@ -174,6 +195,7 @@ def main() -> int:
     check_srcset(html)
     check_no_local_paths(html)
     check_image_metadata(files)
+    check_canonical_matches_cname(html)
     check_readme_matches(html)
 
     plates = len(re.findall(r'<h2 class="hu"', html))
