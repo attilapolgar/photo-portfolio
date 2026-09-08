@@ -478,8 +478,9 @@ footer{
 .lightbox-close:hover{background:rgba(20,24,26,.9)}
 .lightbox-close:focus-visible{outline:2px solid #fff; outline-offset:2px}
 .lightbox-count{
-  position:fixed; left:0; right:0; bottom:max(10px,1.6vmin); margin:0;
-  text-align:center; pointer-events:none;
+  /* paired with the close button, so it never crowds the mat's bottom edge */
+  position:fixed; top:max(12px,2vmin); left:max(12px,2vmin); margin:0;
+  height:44px; display:flex; align-items:center; pointer-events:none;
   font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px;
   letter-spacing:.08em; color:rgba(255,255,255,.45);
   font-variant-numeric:tabular-nums;
