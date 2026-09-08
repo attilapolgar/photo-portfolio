@@ -2,7 +2,7 @@
 
 Tizennégy természetfotó a Pannon-medencéből.
 
-**Élő oldal: https://attilapolgar.github.io/photo-portfolio/**
+**Élő oldal: https://foto.polgar.dev/**
 
 Fotó: Polgár Attila · [@raglopa](https://www.instagram.com/raglopa/)
 Nikon Z 8 · Z 5 · NIKKOR Z 180–600 mm f/5,6–6,3 VR · Laowa 90 mm f/2,8 2× makró
